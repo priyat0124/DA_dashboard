@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Heart Disease Prediction Form</h1>
+    <form action="/predict" method="post">
+        Age: <input type="text" name="Age" required><br>
+        RestingBP: <input type="text" name="RestingBP" required><br>
+        Cholesterol: <input type="text" name="Cholesterol" required><br>
+        FastingBS: <input type="text" name="FastingBS" required><br>
+        MaxHR: <input type="text" name="MaxHR" required><br>
+        Oldpeak: <input type="text" name="Oldpeak" required><br>
+        Sex: <input type="text" name="Sex" required><br>
+        ChestPainType: <input type="text" name="ChestPainType" required><br>
+        RestingECG: <input type="text" name="RestingECG" required><br>
+        ExerciseAngina: <input type="text" name="ExerciseAngina" required><br>
+        ST_Slope: <input type="text" name="ST_Slope" required><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction %}
+        <div class="prediction">
+            <p>{{ prediction }}</p>
+        </div>
+    {% endif %}
+    
+    {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
